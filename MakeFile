@@ -1,11 +1,14 @@
-CC = g++
+CC=g++
+CFLAGS=-c -Wall -Werror
+LDFLAGS=
+SOURCES=main.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=main
 
-CFLAGS = -c -Wall -Werror
+all: $(SOURCES) $(EXECUTABLE)
 
-all: main
-main: main.o
-	$(CC) main.o -o main
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
-clean:
-	rm -rf *.o main
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+ .cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
