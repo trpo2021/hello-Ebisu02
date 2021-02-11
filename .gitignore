@@ -5,3 +5,4 @@ MakeFile~
 *.o
 main
 *.out
+main.exe
